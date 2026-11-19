@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <title>Данные анкеты · Белый мыс</title>
+  <style>
+    @font-face {
+      font-family: Hauss;
+      src: url('./art/hauss.otf') format('opentype');
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: light;
+      --paper: #f5f2e9;
+      --ink: #27342d;
+      --line: #dedacf;
+      --card: #fcfaf5;
+      font: 16px/1.6 Hauss, system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+    h1, h2, p { margin: 0; }
+    .page { width: min(100% - 4rem, 68rem); margin-inline: auto; }
+
+    .masthead { border-bottom: 1px solid var(--line); }
+    .masthead .page {
+      min-height: 4.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand { display: block; width: 2.6rem; height: 2.8rem; }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: .25rem 1.15rem;
+      color: var(--ink);
+      border: 1px solid #b9bfb5;
+      border-radius: 100vmax;
+      text-decoration: none;
+    }
+    .back:hover { background: #e6eae0; border-color: #89998a; }
+    .back:focus-visible { outline: 2px solid #506653; outline-offset: 4px; }
+
+    main { padding-block: 2.25rem 3rem; }
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      min-height: 22rem;
+      padding: 3rem clamp(1.5rem, 5vw, 4.5rem);
+      overflow: hidden;
+      color: #fffaf0;
+      background: #26372e;
+      border-radius: 1.4rem;
+    }
+    .hero img {
+      position: absolute;
+      z-index: -2;
+      inset: 0 0 0 auto;
+      display: block;
+      width: 55%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 56%;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(90deg, #26372e 45%, rgb(38 55 46 / .76) 54%, rgb(38 55 46 / .38) 68%, transparent 89%);
+    }
+    .intro { max-width: 28rem; }
+    h1, h2 { font-family: Georgia, serif; font-weight: 400; }
+    h1 {
+      max-width: 10ch;
+      font-size: clamp(3rem, 7.4vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .intro p { max-width: 22rem; margin-top: 1.25rem; color: #f5f0e4; }
+
+    .sections {
+      display: grid;
+      grid-template-columns: 1.12fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .section {
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid var(--line);
+      border-radius: 1.05rem;
+      background: var(--card);
+    }
+    .section h2 { font-size: 1.6rem; line-height: 1.1; letter-spacing: -.035em; }
+    .section p { margin-top: .75rem; }
+    .section p + p { margin-top: .5rem; color: #505850; }
+
+    .notice {
+      padding: .9rem clamp(1.25rem, 3vw, 2rem);
+      margin-top: 1rem;
+      border: 1px solid #dadfd2;
+      border-radius: .9rem;
+      background: #eaeee4;
+    }
+
+    @media (max-width: 700px) {
+      .page { width: calc(100% - 2rem); }
+      .masthead .page { min-height: 4rem; }
+      .brand { width: 2.15rem; height: 2.45rem; }
+      main { padding-block: 1rem 2rem; }
+      .hero { min-height: 20rem; align-items: flex-end; padding: 1.4rem; }
+      .hero img { width: 100%; object-position: center 52%; }
+      .hero::before { background: linear-gradient(180deg, rgb(27 42 33 / .02) 0%, rgb(27 42 33 / .16) 12%, rgb(27 42 33 / .9) 53%, #22332a 100%); }
+      h1 { max-width: none; font-size: clamp(2.3rem, 9vw, 4rem); }
+      .intro p { margin-top: .65rem; }
+      .sections { grid-template-columns: 1fr; gap: .75rem; margin-top: .75rem; }
+      .notice { margin-top: .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="page">
+      <img class="brand" src="./art/logo.svg" alt="Белый мыс" width="42" height="45">
+      <a class="back" href="./">К анкете</a>
+    </div>
+  </header>
+  <main class="page">
+    <header class="hero">
+      <img src="./assets/finish-coast-v1-DUUWTOUb.webp" width="898" height="1752" alt="" fetchpriority="high">
+      <div class="intro">
+        <h1>Данные анкеты</h1>
+        <p>После отправки мы сохраняем в Nextcloud выбранные ответы и расшифровку комментариев, чтобы оценивать дегустации.</p>
+      </div>
+    </header>
+    <div class="sections">
+      <section class="section">
+        <h2>Статистика посещений</h2>
+        <p>Для статистики посещений браузер хранит случайный идентификатор <strong>до 180 дней</strong>. Мы учитываем открытие анкеты, пройденные шаги, тип устройства, браузер, систему, язык и источник перехода.</p>
+        <p>При переходе с другого сайта сохраняется только его домен.</p>
+      </section>
+      <section class="section">
+        <h2>Настройки приватности</h2>
+        <p>В статистике нет IP-адресов и записей голоса. Анкета учитывает сигналы браузера Do&nbsp;Not&nbsp;Track и Global&nbsp;Privacy&nbsp;Control.</p>
+        <p>Отправка ответов работает и при выключенной аналитике.</p>
+      </section>
+    </div>
+    <aside class="notice">Не указывайте в комментариях имена, телефоны и другие личные данные.</aside>
+  </main>
+</body>
+</html>
